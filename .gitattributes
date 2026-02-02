@@ -1,0 +1,6 @@
+* text=auto
+*.java text
+*.xml text
+*.properties text
+*.md text
+*.sh text eol=lf
