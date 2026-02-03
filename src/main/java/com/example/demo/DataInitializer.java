@@ -20,16 +20,16 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         
-        if (userRepository.findByUsername("yusufenes").isEmpty()) {
+        if (userRepository.findByUsername("rasimsaid").isEmpty()) {
             User admin = new User();
-            admin.setUsername("yusufenes");
-            admin.setEmail("yusufenes@admin.com");
+            admin.setUsername("rasimsaid");
+            admin.setEmail("rasimsaid@admin.com");
             admin.setPassword(passwordEncoder.encode("350948ft"));
             admin.setRole("ROLE_ADMIN");
 
             userRepository.save(admin);
-            System.out.println("--- ADMIN KULLANICISI OLUŞTURULDU ---");
-            System.out.println("User: yusufenes");
+            System.out.println("--- ADMIN ACCOUNT HAS BEEN CREATED ---");
+            System.out.println("User: rasimsaid");
         }
     }
 }
