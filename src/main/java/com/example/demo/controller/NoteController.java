@@ -40,17 +40,7 @@ public class NoteController {
         return "redirect:/notes";
     }
 
-    // Silme İşlemi
-    @PostMapping("/{id}/delete")
-    public String deleteNote(@PathVariable @Min(value = 1, message = "ID negatif olamaz!") Long id,
-                             Principal principal) {
-        try {
-            noteService.deleteNote(id, principal.getName());
-            return "redirect:/notes";
-        } catch (Exception e) {
-            return "redirect:/access-denied";
-        }
-    }
+
 
     // Düzenleme Sayfası
     @GetMapping("/{id}/edit")
@@ -66,6 +56,17 @@ public class NoteController {
 
             model.addAttribute("note", note);
             return "user/edit_note";
+        } catch (Exception e) {
+            return "redirect:/access-denied";
+        }
+    }
+    // Silme İşlemi
+    @PostMapping("/{id}/delete")
+    public String deleteNote(@PathVariable @Min(value = 1, message = "It cant be negatif Id") Long id,
+                             Principal principal) {
+        try {
+            noteService.deleteNote(id, principal.getName());
+            return "redirect:/notes";
         } catch (Exception e) {
             return "redirect:/access-denied";
         }

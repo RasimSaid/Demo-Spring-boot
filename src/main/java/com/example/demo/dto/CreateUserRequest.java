@@ -7,11 +7,11 @@ import jakarta.validation.constraints.Size;
 public class CreateUserRequest {
 
     @NotBlank(message = "Username cannot be empty") // Boş bırakılamaz
-    @Size(min = 3, message = "Username must be at least 3 characters") // En az 3 karakter
+    @Size(min = 4, message = "Username must be at least 4 characters") // En az 3 karakter
     private String username;
 
     @NotBlank(message = "Password cannot be empty")
-    @Size(min = 4, message = "Password must be at least 4 characters")
+    @Size(min = 8, message = "Password must be at least 8 characters")
     private String password;
 
     @NotBlank(message = "Email cannot be empty")
